@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruwudu&display=swap');
+
+.imgChocoCross {
+    width: 333px;
+    height: 121px;
+}
+
+.imgCarrito {
+    width: 50px;
+    height: 50px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    background-color: rgb(138, 111, 79);
+    
+    .css-k008qs {
+        width: 80%;
+        align-items: center;
+
+        .css-kjvu41  {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        
+        .categorias {
+            :hover{
+                background-color: white;
+            }
+        }
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .titulo {
+        padding: 25px;
+        font-family: 'Ruwudu', serif;
+        font-size: xx-large;
+
+    }
+}
