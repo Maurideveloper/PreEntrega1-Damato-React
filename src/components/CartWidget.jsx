@@ -11,7 +11,7 @@ const CartWidget = () => {
             <div>
                 <Flex>
                     <p>{numeroHardcodeado}</p>
-                    <img class="imgCarrito" src={imgCarrito} alt="" />
+                    <img className="imgCarrito" src={imgCarrito} alt="" />
                 </Flex>
             </div>
         </>

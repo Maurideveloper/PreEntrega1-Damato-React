@@ -1,11 +1,10 @@
 import React from 'react'
 import ItemCountJs from './ItemCountJs'
 import {Grid } from '@chakra-ui/react'
-
 import ItemList from './ItemList'
 
-const ItemListContainer = ({greeting}) => {
-    
+const ItemDetailContainer = () => {
+
     const productos = [
         {id: 1, nombre: "Producto A", descripcion: "Descripcion del producto A", precio: 1000},
         {id: 2, nombre: "Producto B", descripcion: "Descripcion del producto B", precio: 1500},
@@ -38,9 +37,9 @@ const ItemListContainer = ({greeting}) => {
         console.log(error)
     })
     
- 
 
-return (
+
+  return (
     <>
     {<main className='main'>
 
@@ -51,8 +50,7 @@ return (
 
     </main> }
     </>
-)
+  )
 }
 
-
-export default ItemListContainer
+export default ItemDetailContainer

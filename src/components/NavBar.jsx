@@ -1,5 +1,5 @@
 import imgChocoCross from '../assets/ChocoCrossmain.png'
-import CartWidget from './cartWidget'
+import CartWidget from './CartWidget'
 import {
     Menu,
     MenuButton,
