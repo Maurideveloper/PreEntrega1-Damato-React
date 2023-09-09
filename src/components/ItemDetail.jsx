@@ -1,10 +1,14 @@
 import React from 'react'
 import ItemCountJs from './ItemCountJs'
+import { Card, Stack, CardBody, CardFooter, Divider, Text, Heading, Button, Image, ButtonGroup, flexbox } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 
-const ItemDetail = (p) => {
+const ItemDetail = ({productos}) => {
     const {id} = useParams()
-    const filteredProducts = p.filter((producto) => producto.id == id)
+    
+    const filteredProducts = productos.filter((producto) => producto.id == id)
+
+
   return (
     <>
     {filteredProducts.map((p) => 
@@ -24,24 +28,17 @@ const ItemDetail = (p) => {
                     <Text color='blue.600' fontSize='2xl'>
                     ${p.precio}
                     </Text>
-                    <ItemCountJs>
-                    </ItemCountJs>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
-                    <flexbox>
-                        <ButtonGroup spacing='2'>
-                        <Button variant='solid' colorScheme='blue'>
-                            Comprar
-                        </Button>
-                        <Button variant='ghost' colorScheme='blue'>
-                            Detalle
-                        </Button>
-                        </ButtonGroup>
-                        <ItemCountJs>
-                        </ItemCountJs>
-                    </flexbox>
+                    <ItemCountJs>
+                    </ItemCountJs>
+                    <ButtonGroup spacing='2'>
+                    <Button variant='solid' colorScheme='blue'>
+                        Comprar
+                    </Button>
+                    </ButtonGroup>
                 </CardFooter>
             </Card>
             </div>
@@ -49,4 +46,4 @@ const ItemDetail = (p) => {
   )
 }
 
-export default ItemDetail
+export default React.memo(ItemDetail);

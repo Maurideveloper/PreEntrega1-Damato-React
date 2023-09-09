@@ -1,9 +1,12 @@
 import React from 'react'
 import { Card, Stack, CardBody, CardFooter, Divider, Text, Heading, Button, Image, ButtonGroup, flexbox } from '@chakra-ui/react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const Item = ({p}) => {
+  
+  console.log(p)
+  
   return (
     <div key={p.id}>
             <Card maxW='sm'>
@@ -22,16 +25,11 @@ const Item = ({p}) => {
                 </CardBody>
                 <Divider />
                 <CardFooter>
-                    <flexbox>
                         <ButtonGroup spacing='2'>
                         <Button variant='solid' colorScheme='blue'>
-                            Comprar
-                        </Button>
-                        <Button variant='ghost' colorScheme='blue'>
-                            Detalle
+                         <Link to={`/item/${p.id}`}> Detalle </Link>
                         </Button>
                         </ButtonGroup>
-                    </flexbox>
                 </CardFooter>
             </Card>
             </div>

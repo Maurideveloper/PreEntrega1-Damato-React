@@ -7,6 +7,7 @@ import {
     MenuItem,
     Flex, Box
 } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 
 const NavBar = () => {
@@ -20,7 +21,9 @@ const NavBar = () => {
                 <nav className='nav'>
                 <Flex>
                     <Box p='2'>
-                        <img className="imgChocoCross" src={imgChocoCross} alt="" />
+                        <Link to={"/"}>
+                            <img className="imgChocoCross" src={imgChocoCross} alt="" />
+                        </Link>
                     </Box>
                     <Box p='2' className='categorias'>
                         <Menu>
@@ -28,16 +31,17 @@ const NavBar = () => {
                                 Categorias
                             </MenuButton>
                             <MenuList>
-                                <MenuItem>Seccion 1</MenuItem>
-                                <MenuItem>Seccion 2</MenuItem>
-                                <MenuItem>Seccion 3</MenuItem>
+                                <MenuItem><Link to={`/categoria/${"A"}`}>Seccion 1</Link></MenuItem>
+                                <MenuItem><Link to={`/categoria/${"B"}`}>Seccion 2</Link></MenuItem>
+                                <MenuItem><Link to={`/categoria/${"C"}`}>Seccion 3</Link></MenuItem>
                             </MenuList>
                         </Menu>
                     </Box>
                 </Flex>
                 
-                <CartWidget/>
-
+                <Link to={"/cart"}>
+                    <CartWidget/>
+                </Link>
                     
 
                 </nav>
