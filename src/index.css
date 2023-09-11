@@ -1,5 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Ruwudu&display=swap');
 
+/*Nav*/
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(138, 111, 79);
+    
+    .css-k008qs {
+        display: flex;
+        width: 80%;
+        align-items: center;
+
+        .css-kjvu41  {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: bold;
+        }
+        
+        .categorias {
+            margin-left: 100px;
+            :hover{
+                background-color: white;
+            }
+        }
+
+        .categoria:hover{
+            background-color: #dac8c8;
+        }
+    }
+
+    a {
+        width: 100%;
+    }
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .cantCart {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+}
+
 .imgChocoCross {
     width: 333px;
     height: 121px;
@@ -10,27 +57,11 @@
     height: 50px;
 }
 
-.nav {
-    display: flex;
-    align-items: center;
-    background-color: rgb(138, 111, 79);
-    
-    .css-k008qs {
-        width: 80%;
-        align-items: center;
-
-        .css-kjvu41  {
-            border: 1px solid black;
-            padding: 5px;
-        }
-        
-        .categorias {
-            :hover{
-                background-color: white;
-            }
-        }
-    }
+.imgCarrito:hover {
+    background-color: white;
 }
+
+
 
 .main {
     display: flex;
@@ -45,9 +76,33 @@
     }
 }
 
-.itemContador {
-    width: 10%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: beige;
+.css-18heqsi {
+    width: 100%;
+    justify-content: space-evenly
 }
+
+.itemContador {
+    display: flex;
+    align-items: center;
+    background-color: beige;
+
+    .buttonCont{
+        width: 35px;
+        height: 35px;
+        border: 1px solid rgb(179, 185, 176);
+        border-radius: 5px;
+        color: rgb(179, 185, 176);
+    }
+    .buttonCont:hover{
+        background-color: antiquewhite;
+    }
+
+    .numCont {
+        font-size: x-large;
+        color: #645c5c;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+
