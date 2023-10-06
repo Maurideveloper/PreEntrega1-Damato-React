@@ -1,17 +1,18 @@
-import imgCarrito from '../../assets/carrito.png'
+import imgCarrito from "../../assets/carrito.png";
+import { CartWidgetContext } from "../context/CartContext";
+import { useContext } from "react";
 
 const CartWidget = () => {
-    const numeroHardcodeado = 3
+  const { totalQuantity } = useContext(CartWidgetContext);
 
-    return (
-        <>
-            <div className='cart'>
-                <p className='cantCart'>{numeroHardcodeado}</p>
-                <img className="imgCarrito" src={imgCarrito} alt="" />
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div className="cart">
+        <p className="cantCart">{totalQuantity}</p>
+        <img className="imgCarrito" src={imgCarrito} alt="" />
+      </div>
+    </>
+  );
+};
 
-
-export default CartWidget
+export default CartWidget;

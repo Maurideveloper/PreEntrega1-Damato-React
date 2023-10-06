@@ -1,44 +1,67 @@
-import React from 'react'
-import ItemCountJs from './ItemCountJs'
-import { Card, Stack, CardBody, CardFooter, Divider, Text, Heading, Image} from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import ItemCountJs from "./ItemCountJs";
+import {
+  Card,
+  Stack,
+  CardBody,
+  CardFooter,
+  Divider,
+  Text,
+  Heading,
+  Image
+} from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
-const ItemDetail = ({productos}) => {
-    const {id} = useParams()
-    
-    const filteredProducts = productos.filter((producto) => producto.id == id)
+const ItemDetail = () => {
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
 
+  useEffect(() => {
+    const db = getFirestore();
 
+    const oneItem = doc(db, "Chocolates", `${id}`);
+    getDoc(oneItem).then((snapshot) => {
+      if (snapshot.exists()) {
+        const docs = snapshot.data();
+        setProduct(docs);
+      } else {
+        console.log("Producto no encontrado");
+      }
+    });
+  }, [id]);
   return (
     <>
-    {filteredProducts.map((p) => 
-    <div key={p.id}>
-            <Card maxW='sm'>
-                <CardBody>
-                    <Image
-                    src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                    alt='Green double couch with wooden legs'
-                    borderRadius='lg'
-                    />
-                    <Stack mt='6' spacing='3'>
-                    <Heading size='md'>{p.nombre}</Heading>
-                    <Text>
-                    {p.descripcion}
-                    </Text>
-                    <Text color='blue.600' fontSize='2xl'>
-                    ${p.precio}
-                    </Text>
-                    </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                    <ItemCountJs>
-                    </ItemCountJs>
-                </CardFooter>
-            </Card>
-            </div>
-            )} </>
-  )
-}
+      <div key={product.id}>
+        <Card width='500px' >
+          <CardBody>
+            <Image
+              className="img"
+              src={product.imagen}
+              alt="Green double couch with wooden legs"
+              borderRadius="lg"
+            />
+            <Stack mt="6" spacing="3">
+              <Heading size="md">{product.nombre}</Heading>
+              <Text>{product.descripcion}</Text>
+              <Text color="white" fontSize="2xl">
+                ${product.precio}
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ItemCountJs
+              id={id}
+              nombre={product.nombre}
+              precio={product.precio}
+            ></ItemCountJs>
+          </CardFooter>
+        </Card>
+      </div>
+    </>
+  );
+};
 
 export default React.memo(ItemDetail);
